@@ -20,7 +20,7 @@
                 window.location = forceTarget;
             }
 
-            if(userAgent.toLowerCase().includes(escapeAgent.toLowerCase)){
+            if(userAgent.toLowerCase().includes(escapeAgent.toLowerCase())){
                 var blob = new Blob([json], {type: "octet/stream"});
                 var url  = window.URL.createObjectURL(blob);
                 window.location.assign(url);
