@@ -1,1 +1,33 @@
 
+<html>
+    <head>
+        <title>
+            Please wait... Redirecting...
+        </title>
+        <script>
+            
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera
+            const urlParams = new URLSearchParams(window.location.search);
+            const target = urlParams.get("to") || null;
+            const forceTarget = urlParams.get("force") || null;
+            const escapeAgent = urlParams.get("escape") || "";
+
+            if(!target && !forceTarget){
+                return;
+            }
+
+            if(forceTarget){
+                window.location = forceTarget;
+            }
+
+            if(userAgent.toLowerCase().includes(escapeAgent.toLowerCase)){
+                var blob = new Blob([json], {type: "octet/stream"});
+                var url  = window.URL.createObjectURL(blob);
+                window.location.assign(url);
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
